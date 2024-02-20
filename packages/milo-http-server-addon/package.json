@@ -1,0 +1,26 @@
+{
+    "name": "milo-http-server-addon",
+    "version": "0.0.1",
+    "description": "",
+    "main": "lib/socket.js",
+    "gypfile": true,
+    "type": "module",
+    "scripts": {
+        "build": "node-gyp rebuild --verbose",
+        "clean": "node-gyp clean",
+        "lint": "biome lint lib",
+        "lint-fix": "biome format lib --write",
+        "start": "node ./test/index.test.js",
+        "test": "node --test"
+    },
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "@biomejs/biome": "^1.5.3"
+    },
+    "dependencies": {
+        "bindings": "~1.5.0",
+        "node-addon-api": "^7.0.0",
+        "node-gyp": "^10.0.1"
+    }
+}
