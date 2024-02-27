@@ -3,7 +3,7 @@
 Status: Draft
 
 This is a living doc attempting to reflect our current technical plan for this repository. We are pulling together work from
-a few sources and plan to bias toward action on merging things as the change. Do not take anything here yet as a final proosal
+a few sources and plan to bias toward action on merging things as the change. Do not take anything here yet as a final proposal
 or committed direction. When that changes we will change the status message here.
 
 ---
