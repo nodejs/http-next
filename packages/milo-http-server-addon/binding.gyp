@@ -1,10 +1,10 @@
 {
   "targets": [
     {
-      "target_name": "inbound-socket",
+      "target_name": "inbound-tcp-socket",
       "cflags!": [ "-fno-exceptions" ],
       "cflags_cc!": [ "-fno-exceptions" ],
-      "sources": [ "src/addon.cpp", "src/socket.cpp" ],
+      "sources": [ "src/addon.cpp", "src/inbound_tcp_socket.cpp" ],
       "include_dirs": [
         "<!@(node -p \"require('node-addon-api').include\")"
       ],

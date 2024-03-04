@@ -1,11 +1,11 @@
 #include <napi.h>
 #include <uv.h>
 
-class Socket : public Napi::ObjectWrap<Socket>
+class InboundTCPSocket : public Napi::ObjectWrap<InboundTCPSocket>
 {
 public:
     static Napi::Object Init(Napi::Env env, Napi::Object exports);
-    Socket(const Napi::CallbackInfo &info);
+    InboundTCPSocket(const Napi::CallbackInfo &info);
 
 private:
     Napi::Value GetPort(const Napi::CallbackInfo &info);
@@ -19,6 +19,6 @@ private:
 
 struct server_data
 {
-    Napi::FunctionReference emit;
+    Napi::FunctionReference callback;
     uv_loop_t *eventLoop;
 };
