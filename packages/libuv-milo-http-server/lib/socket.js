@@ -1,7 +1,7 @@
 import bindings from "bindings";
-const { InboundTCPSocket } = bindings("inbound-tcp-socket");
+const tcp = bindings("inbound-tcp-socket");
 
-export class InboundSocket {
+export class InboundTCPSocket {
 	#socket;
 
 	constructor(options) {
@@ -17,7 +17,7 @@ export class InboundSocket {
 			throw new Error("Hostname is required");
 		}
 
-		this.#socket = new InboundTCPSocket(options);
+		this.#socket = new tcp.InboundTCPSocket(options);
 	}
 
 	close() {

@@ -77,9 +77,9 @@ void after_write(uv_write_t *req, int status)
 static Napi::Value write(const Napi::CallbackInfo &info)
 {
     uv_stream_t *client = (uv_stream_t *)info.Data();
-    Napi::String data = info[0].As<Napi::String>();
+    std::string data = info[0].As<Napi::String>().Utf8Value();
     uv_write_t *req = (uv_write_t *)malloc(sizeof(uv_write_t));
-    uv_buf_t wrbuf = uv_buf_init((char *)data.Utf8Value().c_str(), data.Utf8Value().size());
+    uv_buf_t wrbuf = uv_buf_init((char *)data.c_str(), data.length());
     uv_write(req, client, &wrbuf, 1, after_write);
     uv_close((uv_handle_t *)client, on_close);
     return info.This();
@@ -98,7 +98,7 @@ static void after_read(uv_stream_t *client,
     Napi::Env env = client_data->callback.Env();
     Napi::HandleScope scope(env);
     Napi::Object request = Napi::Object::New(env);
-    request.Set("data", Napi::String::New(env, buf->base, nread));
+    request.Set("data", Napi::Buffer<char>::NewOrCopy(env, buf->base, nread));
     Napi::Object response = Napi::Object::New(env);
     response.Set("write", Napi::Function::New(env, write, "write", client));
 
