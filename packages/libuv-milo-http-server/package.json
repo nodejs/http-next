@@ -1,0 +1,26 @@
+{
+    "name": "libuv-milo-http-server",
+    "version": "0.0.1",
+    "description": "",
+    "main": "lib/http-server.js",
+    "gypfile": true,
+    "type": "module",
+    "scripts": {
+        "build": "node-gyp rebuild",
+        "clean": "node-gyp clean",
+        "lint": "biome lint lib",
+        "lint-fix": "biome lint lib test --fix",
+        "format": "biome format lib test --write",
+        "start": "node ./test/index.test.js",
+        "test": "node --test"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^1.5.3"
+    },
+    "dependencies": {
+        "@perseveranza-pets/milo": "^0.1.0",
+        "bindings": "~1.5.0",
+        "node-addon-api": "^7.0.0",
+        "node-gyp": "^10.0.1"
+    }
+}
